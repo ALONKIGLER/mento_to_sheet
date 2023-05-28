@@ -1,0 +1,31 @@
+{
+  "name": "s.d_back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "build": "npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALONKIGLER/S.D_Back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ALONKIGLER/S.D_Back/issues"
+  },
+  "homepage": "https://github.com/ALONKIGLER/S.D_Back#readme",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "fs": "0.0.1-security",
+    "google-spreadsheet": "^3.3.0",
+    "googleapis": "^39.2.0",
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {},
+  "description": ""
+}
