@@ -144,6 +144,7 @@ function writeData(auth, data) {
         data.phone,
         data.selectedOption,
         data.fileUrl,
+        data.more_inf,
       ],
     ];
     const resource = {
