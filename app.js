@@ -137,7 +137,14 @@ function writeData(auth, data) {
 
   if (data) {
     const values = [
-      [data.firstName, data.link, data.email, data.phone, data.selectedOption],
+      [
+        data.firstName,
+        data.link,
+        data.email,
+        data.phone,
+        data.selectedOption,
+        data.fileUrl,
+      ],
     ];
     const resource = {
       values,
