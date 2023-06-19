@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
 app.use(cors());
 app.use(express.json());
 
@@ -15,29 +14,16 @@ app.use(express.json());
  *
  *     https://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
-// [START sheets_quickstart]
 
 const fs = require("fs");
 const readline = require("readline");
 const { google } = require("googleapis");
-
-// If modifying these scopes, delete token.json.
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
-// The file token.json stores the user's access and refresh tokens, and is
-// created automatically when the authorization flow completes for the first
-// time.
 const TOKEN_PATH = "token.json";
 
-// Load client secrets from a local file.
 fs.readFile("credentials.json", (err, content) => {
   if (err) return console.log("Error loading client secret file:", err);
-  // Authorize a client with credentials, then call the Google Sheets API.
   authorize(JSON.parse(content), writeData);
 });
 
@@ -47,6 +33,7 @@ fs.readFile("credentials.json", (err, content) => {
  * @param {Object} credentials The authorization client credentials.
  * @param {function} callback The callback to call with the authorized client.
  */
+
 function authorize(credentials, callback, data) {
   const { client_secret, client_id, redirect_uris } = credentials.web;
   const oAuth2Client = new google.auth.OAuth2(
@@ -147,31 +134,6 @@ function writeData(auth, data) {
         data.more_inf,
       ],
     ];
-    const resource = {
-      values,
-    };
-    sheets.spreadsheets.values.append(
-      {
-        spreadsheetId: "1PUBAErPVfhRe-eRjDMUJNps9x46DunQMQYs2oSMtirE",
-        range: "Sheet1",
-        valueInputOption: "RAW",
-        resource: resource,
-      },
-      (err, result) => {
-        if (err) {
-          // Handle error
-          console.log(err);
-        } else {
-          console.log(
-            "%d cells updated on range: %s",
-            result.data.updates.updatedCells,
-            result.data.updates.updatedRange
-          );
-        }
-      }
-    );
-  } else {
-    const values = [["data.firstName", "data.link"]];
     const resource = {
       values,
     };
